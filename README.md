@@ -1,7 +1,7 @@
 # rust_snake_game
 Snake Game implementation by Rust + Piston
 
-See [PistonDevelopers/piston repository](https://github.com/PistonDevelopers/piston)
+See [PistonDevelopers/piston](https://github.com/PistonDevelopers/piston) repository.
 
 ![](output.gif)
 
