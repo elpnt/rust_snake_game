@@ -80,7 +80,7 @@ impl Snake {
             _ => self.direction,
         };
 
-        if next_dir != self.direction && next_dir != self.direction.opposite() {
+        if next_dir != self.direction.opposite() {
             self.direction = next_dir;
         }
     }
@@ -135,7 +135,7 @@ impl Snake {
 
     fn next(&mut self, dt: f64, apple: &mut Position, window: &mut PistonWindow) {
         if self.reach_apple(apple) {
-            println!("Score: {}", self.body.len() * 100);
+            println!("Score: {}", self.body.len());
             self.add_tail();
             apple.change_position();
         }
