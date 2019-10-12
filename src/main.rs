@@ -2,7 +2,7 @@ use piston_window::Button::Keyboard;
 use piston_window::Key;
 use piston_window::*;
 use rand::Rng;
-use std::collections::LinkedList;
+use std::collections::VecDeque;
 
 const N_WIDTH: u32 = 30;
 const N_HEIGHT: u32 = 30;
@@ -56,7 +56,7 @@ impl Position {
 
 struct Snake {
     head: Position,
-    body: LinkedList<Position>,
+    body: VecDeque<Position>,
     direction: Direction,
     duration: f64,
 }
@@ -65,7 +65,7 @@ impl Snake {
     fn new(x: u32, y: u32) -> Snake {
         Snake {
             head: Position { x, y },
-            body: LinkedList::new(),
+            body: VecDeque::new(),
             direction: Direction::Right,
             duration: 0.0,
         }
@@ -155,7 +155,7 @@ impl Snake {
     fn restart(&mut self, apple: &mut Position) {
         self.head.x = START_X;
         self.head.y = START_Y;
-        self.body = LinkedList::new();
+        self.body = VecDeque::new();
         self.direction = Direction::Right;
         self.duration = 0.0;
         apple.x = APPLE_X;
