@@ -110,7 +110,8 @@ impl Snake {
     }
 
     fn add_tail(&mut self) {
-        self.body.push_front(Position::new(self.head.x, self.head.y));
+        self.body
+            .push_front(Position::new(self.head.x, self.head.y));
     }
 
     fn check_alive(&self) -> bool {
@@ -164,9 +165,12 @@ impl Snake {
 }
 
 fn draw_rect(color: [f32; 4], x: u32, y: u32, c: Context, g: &mut G2d) {
-    rectangle(color,
-              [x as f64 * CELLSIZE, y as f64 * CELLSIZE, CELLSIZE, CELLSIZE],
-              c.transform, g)
+    rectangle(
+        color,
+        [x as f64 * CELLSIZE, y as f64 * CELLSIZE, CELLSIZE, CELLSIZE],
+        c.transform,
+        g,
+    )
 }
 
 fn main() {
@@ -181,7 +185,6 @@ fn main() {
         .unwrap_or_else(|e| panic!("Failed to build PistonWindow: {}", e));
 
     while let Some(e) = window.next() {
-
         if let Some(_) = e.render_args() {
             window.draw_2d(&e, |c, g, _| {
                 // background
@@ -202,7 +205,7 @@ fn main() {
                         }
                     } else {
                         draw_rect(COLOR_WALL, 0, i, c, g);
-                        draw_rect(COLOR_WALL, N_WIDTH+1, i, c, g);
+                        draw_rect(COLOR_WALL, N_WIDTH + 1, i, c, g);
                     }
                 }
             });
