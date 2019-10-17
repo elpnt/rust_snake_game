@@ -1,5 +1,4 @@
-# Rust Snake Game
-![my badge](https://action-badges.now.sh/elpnt/rust_snake_game)
+# Rust Snake Game ![my badge](https://action-badges.now.sh/elpnt/rust_snake_game)
 
 Snake Game implementation by Rust + Piston
 
